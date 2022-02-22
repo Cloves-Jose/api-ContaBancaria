@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const { Sequelize } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Contas extends Model {
     /**
@@ -13,15 +14,18 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Contas.belongsTo(models.Clientes)
     }
-  } Post.init({}, {
+  } Contas.init({}, {
     sequelize,
     paranoid: true
   })
   Contas.init({
+    categoria: {
+      type: Sequelize.ENUM,
+      values: ['corrente', 'poupanca']
+    },
     saldo: DataTypes.DOUBLE,
     cpf_cliente: DataTypes.STRING,
     saldo: DataTypes.DOUBLE,
-    categoria: DataTypes.ENUM
   }, {
     sequelize,
     modelName: 'Contas',

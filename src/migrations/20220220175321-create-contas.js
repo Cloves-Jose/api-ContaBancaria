@@ -14,16 +14,20 @@ module.exports = {
         references: { model: 'Clientes', key: 'id'}
       },
       saldo: {
+        allowNull: false,
         type: Sequelize.DOUBLE
       },
       cpf_cliente: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       saldo: {
+        allowNull: false,
         type: Sequelize.DOUBLE
       },
       categoria: {
-        type: Sequelize.ENUM(['corrente', 'poupanca'])
+        type: Sequelize.ENUM,
+        values: ['corrente', 'poupanca']
       },
       createdAt: {
         allowNull: false,

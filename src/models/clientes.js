@@ -15,10 +15,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'cliente_id'
       })
     }
-  } Post.init({}, {
-    sequelize,
-    paranoid: true,
-  })
+  }
   Clientes.init({
     nome: DataTypes.STRING,
     dataNascimento: DataTypes.STRING,
@@ -27,6 +24,7 @@ module.exports = (sequelize, DataTypes) => {
     renda: DataTypes.DOUBLE
   }, {
     sequelize,
+    paranoid: true,
     modelName: 'Clientes',
   });
   return Clientes;
