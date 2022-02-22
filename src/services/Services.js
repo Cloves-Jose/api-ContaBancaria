@@ -24,6 +24,10 @@ class Services {
     async recuperarRegistro(id) {
         return database[this.nomeDoModelo].restore({where: {id: id}})
     }
+
+    async atualizarRegistro(id, registroAtualizado) {
+        return database[this.nomeDoModelo].update(registroAtualizado, { where: { id: id}})
+    }
 }
 
 module.exports = Services
