@@ -9,5 +9,6 @@ router
     .get('/clientes/:id', ClientesControllers.listaClientePorId)
     .delete('/clientes/:id', ClientesControllers.apagarClientes)
     .post('/clientes/recuperar/:id', ClientesControllers.recuperaClientes)
+    .put('/clientes/atualiza/:id', ClientesControllers.atualizarCliente)
 
 module.exports = router

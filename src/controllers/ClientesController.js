@@ -56,6 +56,19 @@ class ClientesControllers {
             res.status(500).json(error.message)
         }
     }
+
+    static async atualizarCliente(req, res) {
+        try{
+            const atualizaCliente = req.body
+            const clienteId = req.params.id
+
+            await clientesServices.atualizarRegistro(clienteId, atualizaCliente)
+
+            return res.status(200).json(`O cliente de id ${clienteId} foi atualizado`)
+        } catch(error) {
+            res.status(500).json(error.message)
+        }
+    }
 }
 
 module.exports = ClientesControllers

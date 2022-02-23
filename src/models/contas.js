@@ -12,12 +12,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Contas.belongsTo(models.Clientes)
+      Contas.belongsTo(models.Clientes, {
+        foreignKey: 'cliente_id'
+      })
     }
-  } Contas.init({}, {
-    sequelize,
-    paranoid: true
-  })
+  } 
   Contas.init({
     categoria: {
       type: Sequelize.ENUM,
@@ -28,6 +27,7 @@ module.exports = (sequelize, DataTypes) => {
     saldo: DataTypes.DOUBLE,
   }, {
     sequelize,
+    paranoid: true,
     modelName: 'Contas',
   });
   return Contas;
